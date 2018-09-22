@@ -1,0 +1,54 @@
+<view class="user" style="width: 100%">
+    <view class="user-face-wrapper">
+        <image class="loginbg" mode="aspectFill" src="/static/images/icon/backGround.png" style="height: 150px"></image>
+        <image class="user-face" src="{{userInfo.avatarUrl}}"></image>
+        <view class="user-info">
+            <text>{{userInfo.nickName}}</text>
+            <image src="/static/images/m3.png" wx:if="{{userInfo.gender==1}}"></image>
+            <image src="/static/images/w3.png" wx:if="{{userInfo.gender==2}}"></image>
+            <image src="/static/images/sex.png" wx:if="{{userInfo.gender==0||userInfo.gender==''}}"></image>
+        </view>
+    </view>
+    <view class="bottom-box" style="background-color: #fff;">
+        <view class="list-box">
+            <view class="icon-text">
+                <span>参与</span>
+            </view>
+            <text>{{countMy}}</text>
+        </view>
+        <view bindtap=" " class="list-box ">
+            <view class="icon-text ">
+                <span>总时长</span>
+            </view>
+            <text>{{timeLong}}</text>
+        </view>
+    </view>
+    <view class="thirdblock" style="margin-top:80px;">
+        <view bindtap="click_myLaunch" class="itemself" data-index="1">
+            <image class="itemself_ico" src="/static/images/icon/times.png"></image>
+            <span>我的发起</span>
+        </view>
+        <view bindtap="click_myJoin" class="itemself" data-index="2">
+            <image class="itemself_ico" src="/static/images/icon/jssq.png"></image>
+            <span>我的加入</span>
+        </view>
+        <view bindtap="click_myCollection" class="itemself" data-index="3">
+            <image class="itemself_ico" src="/static/images/icon/status.png"></image>
+            <span>我的收藏</span>
+        </view>
+        <view bindtap="click_projectBrief" class="itemself" data-index="4">
+            <image class="itemself_ico" src="/static/images/icon/specialty.png"></image>
+            <span>项目简介</span>
+        </view>
+        <view bindtap="click_Tick" class="itemself" data-index="5">
+            <image class="itemself_ico" src="/static/images/icon/tick22.png "></image>
+            <span>反馈建议</span>
+        </view>
+        <view bindtap="click_more" class="itemself" data-index="6">
+            <image class="itemself_ico" src="/static/images/icon/plus.png "></image>
+            <span>更多信息</span>
+        </view>
+    </view>
+    <view class="h10"></view>
+    <view class="h10"></view>
+</view>

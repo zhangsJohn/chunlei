@@ -1,0 +1,42 @@
+<view class="mpage" style="width:100%;">
+    <scroll-view scrollY bindscroll="" style="height: 100%;">
+        <view class="activities">
+            <view class="subtitle">
+                <text>最新活动</text>
+                <space></space>
+                <button bindtap="refresh">点击刷新</button>
+            </view>
+            <view class="activity" wx:for="{{postsList}}" wx:key="id">
+                <view class="list_header">
+                    <view class="list_header_left">
+                        <image mode="aspectFill" src="{{item.publisherPic}}" wx:if="publisherPic"></image>
+                        <view>{{item.publisherName}}</view>
+                    </view>
+                    <view class="content-date list_header_right">
+                        <image src="/static/images/calendar.png"></image>
+                        <text>{{item.pubtime}}</text>
+                        <image src="/static/images/comments.png"></image>
+                        <text class="">{{item.commentnum}}</text>
+                        <image src="/static/images/home-like.png"></image>
+                        <text class="">{{item.likenum}}</text>
+                    </view>
+                </view>
+                <view class="horizontal">
+                    <view class="tag tag_{{item.acttype}}">{{item.acttypename}}</view>
+                    <text class="title">{{item.title}}</text>
+                </view>
+                <image bindtap="click_activity" class="photo" data-actid="{{item.id}}" data-pubid="{{item.publisherId}}" mode="aspectFill" src="{{item.actPic}}" wx:if="{{item.actPic}}"></image>
+                <text class="intro">{{item.content}}</text>
+                <text class="time">有效时间：{{item.endtime}}</text>
+                <text class="location">活动地点：{{item.address}}</text>
+            </view>
+        </view>
+        <view class="loadingmore">
+            <view wx:if="{{!isEmpty}}">
+                <button bindtap="loadMore" class="more-button" formType="submit" size="mini">加载更多...</button>
+            </view>
+            <view class="no-more" wx:if="{{isEmpty}}">---无更多活动---</view>
+        </view>
+        <tab-shadow></tab-shadow>
+    </scroll-view>
+</view>

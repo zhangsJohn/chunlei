@@ -1,0 +1,3 @@
+<view class="homepage">
+    <map showLocation bindcallouttap="markertap" bindcontroltap="controltap" controls="{{controls}}" id="myMap" latitude="{{point.latitude}}" longitude="{{point.longitude}}" markers="{{markers}}" scale="{{mapScale}}" style="width: {{mapWidth}}; height: {{mapHeight}};top: {{mapTop}}"></map>
+</view>

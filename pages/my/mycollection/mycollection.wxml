@@ -1,0 +1,36 @@
+<import src="../../template/activity/common-list.wxml"></import>
+<view class="topic-common-list">
+    <view class="topic-list-item">
+        <view>
+            <image class="cover" src="/static/images/website-search.png"></image>
+        </view>
+        <view class="topic-content-title">
+            <text>我的收藏</text>
+        </view>
+        <view class="topic-content-title-line"></view>
+        <view class="topic-content-brief">
+            <text>共收藏{{totalCount}}条发起</text>
+        </view>
+    </view>
+</view>
+<view class="container">
+    <view wx:if="{{postsList.length==0}}">
+        <view class="imgitem">
+            <image class="empty_img" src="/static/images/norecord1.png"></image>
+        </view>
+        <view class="txtitem">
+            <text class="t28rpx">暂无收藏</text>
+        </view>
+    </view>
+    <view wx:if="{{postsList.length>0}}">
+        <view class="index-container">
+            <template is="tempCommonList" data="{{postsList:postsList}}"></template>
+            <view class="loadingmore">
+                <view wx:if="{{!isEmpty}}">
+                    <button bindtap="loadMore" class="more-button" formType="submit" size="mini">加载更多...</button>
+                </view>
+                <view class="no-more" wx:if="{{isEmpty}}">---无更多收藏---</view>
+            </view>
+        </view>
+    </view>
+</view>

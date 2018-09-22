@@ -1,0 +1,58 @@
+<view class="container">
+    <view bindtap="openList" class="list-btn">
+        <image class="btn-icon" src="/static/images/icon/tick2.png"></image>
+        <text class="btn-text">我的反馈记录（{{feednum}}次）</text>
+        <view class="btn-open">
+            <image class="btn-open-img" src="/static/images/more/{{status?'up':'down'}}.png"></image>
+        </view>
+    </view>
+    <view class="issues-list" wx:if="{{status}}">
+        <view wx:if="{{hasFeed==false}}">
+            <view class="imgitem">
+                <image class="empty_img" src="/static/images/norecord1.png"></image>
+            </view>
+            <view class="txtitem">
+                <text class="t28rpx">暂无您的反馈记录</text>
+            </view>
+        </view>
+        <view bindtap="openItem" class="issues-item {{index==itemopen?'':'close'}}" data-index="{{index}}" wx:if="{{hasFeed}}" wx:for="{{feedList}}" wx:key="id">
+            <text class="btn-text">{{item.title}}</text>
+            <text class="item-status">{{item.pubtime}}</text>
+            <view class="btn-open" wx:if="{{index!=itemopen}}">
+                <image class="btn-open-img" src="/static/images/more/down.png"></image>
+            </view>
+            <view class="item-bd" wx:else>
+                <view class="item-comment">
+                    <image class="item-comment-img" src="{{item.feedpic}}"></image>
+                    <view class="item-comment-bd">
+                        <text>{{item.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <block wx:else>
+        <text class="issues-label">新建反馈</text>
+        <form bindsubmit="submitForm">
+            <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{TopTips}}</view>
+            <view class="issues-panel">
+                <view class="issues-input">
+                    <input name="title" placeholder="请输入反馈标题" value="{{title}}"></input>
+                </view>
+                <textarea class="issues-textarea" cursorSpacing="50" name="content" placeholder="请输入反馈内容" value="{{content}}"></textarea>
+            </view>
+            <text class="issues-label">选择图片（可选）</text>
+            <view class="issues-img-panel">
+                <view bindtap="uploadPic" class="issues-photo-item add-photo" wx:if="{{!isSrc}}"></view>
+                <view class="image_box" wx:if="{{isSrc}}">
+                    <view class="picPre">
+                        <image mode="aspectFit" src="{{src}}"></image>
+                        <view bindtap="clearPic"></view>
+                    </view>
+                </view>
+            </view>
+            <text class="issues-remind ">春蕾的微信公众号“SCUchunlei”，青志菌QQ：2376899481。</text>
+            <button class="submit-btn" disabled="{{isdisabled}}" formType="submit" hoverStartTime="200" loading="{{isLoading}}">提交反馈</button>
+        </form>
+    </block>
+</view>

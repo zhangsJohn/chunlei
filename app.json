@@ -1,0 +1,63 @@
+{
+    "pages": [
+        "pages/start/start",
+        "pages/index/index",
+        "pages/post/post",
+        "pages/self/self",
+        "pages/detail/detail",
+        "pages/showinmap/showinmap",
+        "pages/message/message",
+        "pages/logs/logs",
+        "pages/updAct/updAct",
+        "pages/my/projectbrief/projectbrief",
+        "pages/my/aboutus/aboutus",
+        "pages/my/myjoin/myjoin",
+        "pages/my/mylaunch/mylaunch",
+        "pages/my/mycollection/mycollection",
+        "pages/my/issues/issues",
+        "pages/my/more/more",
+        "pages/my/logs/logs"
+    ],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#ff3333",
+        "navigationBarTitleText": "志愿活动嗨起来",
+        "backgroundColor": "#fff"
+    },
+    "tabBar": {
+        "color": "#9BABBA",
+        "selectedColor": "#8B9BAA",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "static/images/tar-home.png",
+                "selectedIconPath": "static/images/tar-home-on.png"
+            },
+            {
+                "pagePath": "pages/post/post",
+                "text": "发起",
+                "iconPath": "static/images/tar-about.png",
+                "selectedIconPath": "static/images/tar-about-on.png"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "text": "动态",
+                "iconPath": "static/images/tar-topic.png",
+                "selectedIconPath": "static/images/tar-topic-on.png"
+            },
+            {
+                "pagePath": "pages/self/self",
+                "text": "个人",
+                "iconPath": "static/images/self.png",
+                "selectedIconPath": "static/images/self-on.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    }
+}

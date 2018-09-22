@@ -1,0 +1,79 @@
+<loading hidden="{{loading}}">
+  页面加载中...
+</loading>
+<service>
+    <view class="subtitle">
+        <image mode="aspectFit" src="/static/images/ic_notice.png"></image>
+        <view class="demo__icon zan-badge">
+            <text>通知</text>
+            <view class="zan-badge__count" wx:if="{{noticeCount>0}}">{{noticeCount}}</view>
+        </view>
+        <space></space>
+    </view>
+    <view class="item-wrapper">
+        <view wx:if="{{noticeList.length==0}}">
+            <view class="imgitem">
+                <image class="empty_img" src="/static/images/norecord1.png"></image>
+            </view>
+            <view class="txtitem">
+                <text class="t28rpx">暂无通知</text>
+            </view>
+        </view>
+        <view class="item-list" wx:for="{{noticeList}}" wx:key="that">
+            <view bindtap="readDetail" bindtouchend="touchENotice" bindtouchmove="touchMNotice" bindtouchstart="touchSNotice" class="item-info" data-fid="{{item.fid}}" data-id="{{item.id}}" data-index="{{index}}" data-wid="{{item.wid}}" style="left:{{item.left+'rpx'}}">
+                <image class="info-img" src="{{item.avatar}}"></image>
+                <view class="info-wrapper">
+                    <view class="info-desc">
+                        <view class="name">{{item.username}}</view>
+                        <view class="time">{{item.time}}</view>
+                    </view>
+                    <view class="info-content">
+                        <view class="message read_{{item.is_read}}">{{item.message}}</view>
+                        <view class="status read_{{item.is_read}}">{{item.status}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="item-oper">
+                <view bindtap="noticeDelete" class="oper-delete" data-id="{{item.id}}" data-index="{{index}}">删除</view>
+            </view>
+        </view>
+    </view>
+</service>
+<jwc>
+    <view class="subtitle">
+        <image mode="aspectFit" src="/static/images/ic_jwc.png"></image>
+        <view class="demo__icon zan-badge">
+            <text>消息</text>
+            <view class="zan-badge__count" wx:if="{{infoCount>0}}">{{infoCount}}</view>
+        </view>
+        <space></space>
+    </view>
+    <view class="item-wrapper">
+        <view wx:if="{{infoList.length==0}}">
+            <view class="imgitem">
+                <image class="empty_img" src="/static/images/norecord1.png"></image>
+            </view>
+            <view class="txtitem">
+                <text class="t28rpx">暂无消息</text>
+            </view>
+        </view>
+        <view class="item-list" wx:for="{{infoList}}" wx:key="that">
+            <view bindtap="readDetail" bindtouchend="touchEInfo" bindtouchmove="touchMInfo" bindtouchstart="touchSInfo" class="item-info" data-fid="{{item.fid}}" data-id="{{item.id}}" data-index="{{index}}" data-wid="{{item.wid}}" style="left:{{item.left+'rpx'}}">
+                <image class="info-img" src="{{item.avatar}}"></image>
+                <view class="info-wrapper">
+                    <view class="info-desc">
+                        <view class="name">{{item.username}}</view>
+                        <view class="time">{{item.time}}</view>
+                    </view>
+                    <view class="info-content">
+                        <view class="message read_{{item.is_read}}">{{item.message}}</view>
+                        <view class="status read_{{item.is_read}}">{{item.status}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="item-oper">
+                <view bindtap="infoDelete" class="oper-delete" data-id="{{item.id}}" data-index="{{index}}">删除</view>
+            </view>
+        </view>
+    </view>
+</jwc>

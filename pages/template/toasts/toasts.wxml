@@ -1,0 +1,66 @@
+<template name="actQrCode">
+    <view class="code-succeed" style="opacity:1;pointer-events:auto;" wx:if="{{qrcodeHe}}">
+        <view class="code-succeed-toast">
+            <image bindtap="closeqrcode" class="code-close" src="/static/images/close1@2x.png"></image>
+            <view class="code-club-content">
+                <view class="code-club-theme">进入该发起的群聊</view>
+                <view class="text-space">由发起者创建，方便于大家的交流</view>
+                <view class="text-space">请点击二维码查看大图，长按保存，扫一扫加入</view>
+            </view>
+            <view>
+                <image bindtap="seeqrCodeBig" class="code-message-img" mode="widthFix" src="{{qrcode}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="actCode">
+    <view class="code-succeed" style="opacity:1;pointer-events:auto;" wx:if="{{codeHehe}}">
+        <view class="code-succeed-toast">
+            <image bindtap="closeCode" class="code-close" src="/static/images/close1@2x.png"></image>
+            <view class="code-club-content">
+                <view class="code-club-theme">邀请好友加入活动</view>
+                <view class="text-center text-space">方式一：点击右上角【...】－【分享】发送给好友，点击即可查看活动详情</view>
+                <view class="code-club-tip text-center">或</view>
+                <view class="text-space">方式二：分享下方二维码</view>
+                <view class="text-space">用微信扫一扫即可查看活动详情</view>
+            </view>
+            <view>
+                <image class="code-message-img" mode="widthFix" src="data:image/png;base64,{{imageBytes}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="actjoinLink">
+    <view class="code-succeed" style="opacity:1;pointer-events:auto;" wx:if="{{item.linkjoinHe}}">
+        <view class="code-succeed-toast code-club-position">
+            <image bindtap="closejoinLink" class="code-close" src="/static/images/close1@2x.png"></image>
+            <view class="activity-link-theme">您可以通过{{item.contactWay}}与{{item.realname}}取得联系</view>
+            <view class="activity-flex-wap">
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/wx.png" wx:if="{{item.contactWay=='微信号'}}"></image>
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/phone.png" wx:if="{{item.contactWay=='手机号'}}"></image>
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/qq.png" wx:if="{{item.contactWay=='QQ号'}}"></image>
+                <view class="activity-link-txt">{{item.contactValue}}</view>
+            </view>
+            <view class="activity-link-btn">
+                <view bindtap="copyLink" class="activity-link-button" data-value="{{item.contactValue}}">复制Ta的{{item.contactWay}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="actmainLink">
+    <view class="code-succeed" style="opacity:1;pointer-events:auto;" wx:if="{{linkmainHe}}">
+        <view class="code-succeed-toast code-club-position">
+            <image bindtap="closemainLink" class="code-close" src="/static/images/close1@2x.png"></image>
+            <view class="activity-link-theme">您可以通过{{adcontactWay}}与{{adminname}}取得联系</view>
+            <view class="activity-flex-wap">
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/wx.png" wx:if="{{adcontactWay=='微信号'}}"></image>
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/phone.png" wx:if="{{adcontactWay=='手机号'}}"></image>
+                <image class="activity-link-img" mode="widthFix" src="/static/images/icon/qq.png" wx:if="{{adcontactWay=='QQ号'}}"></image>
+                <view class="activity-link-txt">{{adcontactValue}}</view>
+            </view>
+            <view class="activity-link-btn">
+                <view bindtap="copyLink" class="activity-link-button" data-value="{{adcontactValue}}">复制Ta的{{adcontactWay}}</view>
+            </view>
+        </view>
+    </view>
+</template>

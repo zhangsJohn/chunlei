@@ -1,0 +1,159 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+li {
+    list-style: none;
+}
+
+html,body {
+    width: 100%;
+    min-height: 100%;
+    background: #f0f0f0;
+}
+
+.h10 {
+    background: #f0f0f0;
+}
+
+.h1 {
+    height: 1px;
+    margin-left: 50px;
+    background: #f0f0f0;
+    position: fixed;
+}
+
+.fr {
+    float: right;
+}
+
+.hint {
+    color: #666;
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.firstblock,.secondblock,.thirdblock {
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.loginbg {
+    width: 100%;
+    height: 416rpx;
+    filter: blur(2px);
+    position: relative;
+}
+
+.itemself {
+    padding-bottom: 7.5px;
+    padding-top: 7.5px;
+    background-color: #fff;
+    border-bottom: 1rpx solid rgb(230,230,230);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.itemself_ico {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+.itemself_arrow {
+    float: right;
+    height: 26px;
+    width: 26px;
+    margin: 11px 20px;
+}
+
+.presshover {
+    background-color: #fafafa;
+}
+
+.font_size {
+    font-size: 16px;
+    color: #333;
+}
+
+.bottom-box {
+    width: 100%;
+    text-align: center;
+}
+
+.list-box {
+    width: 25%;
+    float: left;
+    border-bottom: 10rpx solid rgb(230,230,230);
+    margin-left: 16.6%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon-text {
+    height: 20px;
+    line-height: 20px;
+    font-size: 18px;
+}
+
+.user {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.user .user-face-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 20rpx 0;
+}
+
+.user .user-face {
+    width: 150rpx;
+    height: 150rpx;
+    position: fixed;
+    border-radius: 50%;
+    box-shadow: 0px 3px 20px #333;
+}
+
+.user .user-info {
+    height: 30px;
+    position: fixed;
+    margin-top: 60px;
+}
+
+.user .user-info text {
+    width: 200rpx;
+    height: 28px;
+    float: left;
+}
+
+.user .user-info image {
+    height: 20px;
+    width: 20px;
+    float: left;
+}
+
+.user .one-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    color: white;
+    font-size: 38rpx;
+}
+
+.dialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    z-index: 1000;
+    color: #fff;
+}

@@ -1,0 +1,13 @@
+<template name="button">
+    <view class="weui-mask_transparent" wx:if="{{backdrop&&opened}}"></view>
+    <view bindtap="{{toggle}}" class="speed-dial {{className}} {{animateCss}} {{opened?'speed-dial-opened':''}}" data-opened="{{opened}}" wx:if="{{visible}}">
+        <view class="floating-button" hoverClass="active-state">
+            <text class="speed-dial-icon"></text>
+        </view>
+        <view class="speed-dial-buttons" wx:if="{{buttons.length}}">
+            <view catchtap="{{buttonClicked}}" class="speed-dial-button {{item.className}}" data-index="{{index}}" data-label="{{item.label}}" hoverClass="active-state" wx:for="{{buttons}}">
+                <image class="speed-dial-icon" src="{{item.icon}}"></image>
+            </view>
+        </view>
+    </view>
+</template>

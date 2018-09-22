@@ -1,0 +1,22 @@
+<view class="container">
+    <view class="more-list">
+        <navigator class="about-link" url="/pages/my/aboutus/aboutus">
+            <view class="more-btn">
+                <image class="btn-icon" src="/static/images/icon/about.png"></image>
+                <text class="btn-text">关于春蕾</text>
+                <view class="btn-open">
+                    <image class="btn-enter" src="/static/images/more/enter.png"></image>
+                </view>
+            </view>
+        </navigator>
+        <navigator class="issue-link" url="/pages/start/start">
+            <view class="more-btn">
+                <image class="btn-icon" src="/static/images/icon/start.png"></image>
+                <text class="btn-text">启动画面</text>
+                <view class="btn-open">
+                    <image class="btn-enter" src="/static/images/more/enter.png"></image>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

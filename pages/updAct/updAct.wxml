@@ -1,0 +1,91 @@
+<view class="add-page">
+    <form bindsubmit="submitForm">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{TopTips}}</view>
+        <view class="mod-a">
+            <view class="mod t-name">
+                <text class="key">活动名称</text>
+                <input class="input" maxlength="100" name="title" placeholder="请输入活动名称" value="{{title}}"></input>
+                <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+            </view>
+        </view>
+        <view class="mod-a mt20">
+            <view class="mod t-sign-time">
+                <text class="key">活动类别</text>
+                <picker bindchange="bindTypeChange" range="{{types}}" value="{{typeIndex}}">
+                    <view class="value" name="types">{{types[typeIndex]}}
+            <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+                    </view>
+                </picker>
+            </view>
+            <view bindtap="chooseLocation" class="mod t-address">
+                <text class="key">活动地点</text>
+                <text bindtap="addressChange" class="value" name="address" value="{{address}}">{{address}}</text>
+                <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+            </view>
+            <view class="mod t-sign-time">
+                <text class="key">有效时间</text>
+                <picker bindchange="bindDateChange" end="2020-09-01" mode="date" start="{{date}}" value="{{date}}">
+                    <view class="value" name="endtime">{{date}}
+            <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+                    </view>
+                </picker>
+            </view>
+            <view class="mod  t-early">
+                <text class="key">限制人数</text>
+                <switch bindchange="switch1Change" checked="{{switchp}}" name="switchHide" type="switch"></switch>
+            </view>
+            <view wx:if="{{peopleHide}}">
+                <view class="mod t-name">
+                    <text class="key">人数设置</text>
+                    <input class="input" maxlength="100" name="peoplenum" placeholder="请输入人数" type="number" value="{{peoplenum}}"></input>
+                    <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="mod-a mt20">
+            <view class="mod-big my-nick">
+                <textarea bindinput="bindTextAreaChange" class="weui-textarea" maxlength="{{noteMaxLen}}" name="content" placeholder="请输入活动内容" style="height: 7em" value="{{content}}"></textarea>
+                <view class="chnumber">{{noteNowLen}}/{{noteMaxLen}}</view>
+            </view>
+        </view>
+        <view bindtap="uploadPic" class="add_pic" wx:if="{{!isSrc}}">
+            <view>添加图片（选）</view>
+        </view>
+        <view class="image_box" wx:if="{{isSrc}}">
+            <view class="picPre">
+                <image bindtap="seeActBig" mode="aspectFit" src="{{src}}"></image>
+                <view bindtap="clearPic"></view>
+            </view>
+        </view>
+        <view class="mod-a mt20"></view>
+        <view class="mod-a mt20">
+            <view class="mod t-name">
+                <text class="key">真实姓名</text>
+                <input class="input" maxlength="100" name="realname" placeholder="请输入真实姓名" value="{{realname}}"></input>
+                <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+            </view>
+            <view class="mod-a"></view>
+            <view class="mod t-name">
+                <picker bindchange="bindAccountChange" name="contactWay" range="{{accounts}}" value="{{accountIndex}}">
+                    <view class="select">{{accounts[accountIndex]}}</view>
+                </picker>
+                <input class="input" name="contactValue" placeholder="请输入号码" value="{{contactValue}}"></input>
+                <image class="arrow-r" src="/static/images/arrow-r-0.png"></image>
+            </view>
+            <view bindtap="uploadCodePic" class="add_pic t-code" wx:if="{{!isCodeSrc}}">
+                <view class="code">上传活动群二维码（选）</view>
+            </view>
+            <view class="image_box" wx:if="{{isCodeSrc}}">
+                <view class="picPre">
+                    <image bindtap="seeqrCodeBig" mode="aspectFit" src="{{codeSrc}}"></image>
+                    <view bindtap="clearCodePic"></view>
+                </view>
+            </view>
+        </view>
+        <view class="mod-a">
+            <view class="submit-btn">
+                <button class="button" disabled="{{isdisabled}}" formType="submit" hoverStartTime="200" loading="{{isLoading}}">修改</button>
+            </view>
+        </view>
+    </form>
+</view>
